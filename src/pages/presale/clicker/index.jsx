@@ -11,6 +11,8 @@ export const ClickerPresale = () => {
 
   const { checkNft, nftList, isAllowReflink } = useCheckNft();
 
+  console.log(nftList);
+
   return (
     <BaseLayout parentStyle='space-y-[60px] sm:space-y-6 '>
       <div className="max-w-[1224px] w-full flex items-center justify-between text-left w-full">

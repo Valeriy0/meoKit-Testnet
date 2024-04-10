@@ -89,11 +89,15 @@ export const BuyBlock = ({ checkNft, nftList, isAllowReflink }) => {
         let gas = null;
         const priceNft = toWei(fecthingNftList[currentNumCard]?.price);
 
-        const arrayWithIds = [0,0,0,0];
-        const arrayWithAmounts = [0,0,0,0];
-        const gap = id > 8 ? id - 8 : id > 4 ? id - 4 : id;
-        arrayWithIds.splice(gap - 1, 1, 1);
-        arrayWithAmounts.splice(gap - 1, 1, priceNft);
+        console.log(fecthingNftList[currentNumCard]?.price);
+
+        // const arrayWithIds = id > 8 ? [9,10,11,12] : id > 4 ? [5,6,7,8] : [1,2,3,4];
+         const arrayWithIds = [Number(id)];
+        const arrayWithAmounts = [1];
+        // const gap = id > 8 ? id - 8 : id > 4 ? id - 4 : id;
+        // arrayWithIds.splice(gap - 1, 1, Number(id));
+        // arrayWithAmounts.splice(gap - 1, 1, 1);
+        console.log(arrayWithIds, arrayWithAmounts)
 
         try {
           gas = await contract.estimateGas.buy(refWallet, arrayWithIds, arrayWithAmounts, {
