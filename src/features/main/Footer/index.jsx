@@ -82,7 +82,7 @@ export const Footer = () => {
       </div>
       <hr className="border-t border-[#272829] my-10" />
       <div className="flex justify-between w-full sm:flex-col sm:justify-center">
-        <img className="max-h-[38px] h-full sm:max-h-[32px] sm:order-2 sm:mt-6" src="/main/logo.svg" alt="" />
+        <img className="max-h-[24px] h-full sm:max-h-[20px] sm:order-2 sm:mt-6" src="/main/logoMeo.png" alt="" />
         <div className="sm:order-1 flex flex-col justify-center items-center sm:space-y-6 sm:mb-2.5">
           <span className="hidden sm:block poppins text-xl font-semibold">Join us</span>
           <div className="flex items-center justify-center space-x-5">

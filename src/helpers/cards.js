@@ -1,38 +1,65 @@
+import { nft1 } from "./cards/1";
+import { nft2 } from "./cards/2";
+import { nft3 } from "./cards/3";
+import { nft4 } from "./cards/4";
+import { nft5 } from "./cards/5";
+import { nft6 } from "./cards/6";
+import { nft7 } from "./cards/7";
+import { nft8 } from "./cards/8";
+import { nft9 } from "./cards/9";
+import { nft10 } from "./cards/10";
+import { nft11 } from "./cards/11";
+import { nft12 } from "./cards/12";
+
+export const allNfts = [nft1, nft2, nft3, nft4, nft5, nft6, nft7, nft8, nft9, nft10, nft11,  nft12];
+
 export const cardsTimers = [
   {
-    startTime: 1706097600,
-    endTime: 1706183999,
+    startTime: 1712754984,
+    endTime: 1712927784,
   },
   {
-    startTime: 1706184000,
-    endTime: 1706270399,
+    startTime: 1712754984,
+    endTime: 1712927784,
   },
   {
-    startTime: 1706270400,
-    endTime: 1706356799,
+    startTime: 1712754984,
+    endTime: 1712927784,
   },
   {
-    startTime: 1706356800,
-    endTime: 1706443199,
+    startTime: 1712754984,
+    endTime: 1712927784,
   },
   {
-    startTime: 1706443200,
-    endTime: 1706529599,
+    startTime: 1712927785,
+    endTime: 1713100584,
   },
   {
-    startTime: 1706529600,
-    endTime: 1706615999,
+    startTime: 1712927785,
+    endTime: 1713100584,
   },
   {
-    startTime: 1706616000,
-    endTime: 1706702399,
+    startTime: 1712927785,
+    endTime: 1713100584,
   },
   {
-    startTime: 1706702400,
-    endTime: 1706788799,
+    startTime: 1712927785,
+    endTime: 1713100584,
   },
   {
-    startTime: 1706788800,
-    endTime: 1706788900,
+    startTime: 1713100585,
+    endTime: 1713273384,
+  },
+  {
+    startTime: 1713100585,
+    endTime: 1713273384,
+  },
+  {
+    startTime: 1713100585,
+    endTime: 1713273384,
+  },
+  {
+    startTime: 1713100585,
+    endTime: 1713273384,
   },
 ];

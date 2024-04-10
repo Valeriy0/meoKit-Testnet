@@ -1,17 +1,16 @@
-export const nft5 = {
-  "id": "5",
-  "price": 0.04,
+export const nft10 = {
+  "id": "10",
   "description": "The set of suits for the Cougars from the MEO World p2e game. Each costume is a pass to MEO Interplanet Tournament with a prize pool in FRGX Tokens.",
-  "image": "https://meo.world/MeoKit/Interplanet/img/pants_buccaneer.png",
-  "name": "Buccaneer pants",
+  "image": "https://meo.world/MeoKit/Interplanet/img/tail_nomad.png",
+  "name": "Nomad tail",
   "attributes": [
     {
       "trait_type": "Wear type",
-      "value": "Pants"
+      "value": "Tail"
     },
     {
       "trait_type": "Energy bonus",
-      "value": "10"
+      "value": "0"
     }
   ]
 }

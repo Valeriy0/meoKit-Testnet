@@ -14,13 +14,13 @@ export const ClickerPresale = () => {
   return (
     <BaseLayout parentStyle='space-y-[60px] sm:space-y-6 '>
       <div className="max-w-[1224px] w-full flex items-center justify-between text-left w-full">
-        <span className="poppins text-[40px] font-semibold sm:text-[24px]">CLIX NFT Sale of the Day</span>
+        <span className="poppins text-[40px] font-semibold sm:text-[24px]">MEO NFT Interplanet Kit</span>
         <Reflink checkNft={checkNft} nftList={nftList} isAllowReflink={isAllowReflink} wrapperStyle="sm:hidden" />
       </div>
         {isAnySet && (
           <BuyBlock checkNft={checkNft} nftList={nftList} isAllowReflink={isAllowReflink} />
         )}
-      <About />
+      {/* <About /> */}
     </BaseLayout>
   )
 }

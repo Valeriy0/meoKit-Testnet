@@ -29,7 +29,7 @@ export const Header = () => {
       <div className="w-full max-w-[1224px]  flex items-center justify-between">
         <div className="flex-1 flex items-center justify-start">
           <a href="/">
-            <img className="max-h-[38px] h-full sm:max-h-[32px]" src="/main/logo.svg" alt="" />
+            <img className="max-h-[23px] h-full sm:max-h-[20px]" src="/main/logoMeo.png" alt="" />
           </a>
         </div>
         <div className="flex-1 flex items-center justify-end">

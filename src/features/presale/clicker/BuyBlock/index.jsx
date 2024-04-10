@@ -7,7 +7,7 @@ import { useGetContract } from "../../../../helpers/hooks/useGetContract";
 import { DEFAULT_GAS_LIMIT } from "../../../../helpers/constants";
 import {increaseByPercent, toWei} from "../../../../helpers/numbers";
 import { Timer } from "../../../../components/Timer";
-import { cardsTimers } from "../../../../helpers/cards";
+import { cardsTimers, allNfts } from "../../../../helpers/cards";
 import { setCookie, parseCookies } from 'nookies';
 import {convernImgUrl, parseErrorToUserReadableMessage} from "../../../../helpers/format";
 import { RightList } from "./RightList";
@@ -56,12 +56,12 @@ export const BuyBlock = ({ checkNft, nftList, isAllowReflink }) => {
     const refData = new URL(window.location.toString()).searchParams.get('ref');
     if (refData) {
       setRefWallet(refData);
-      setCookie(null, 'ref_clix', refData, {
+      setCookie(null, 'ref_meo', refData, {
         maxAge: 30 * 24 * 60 * 60,
         path: '/',
       });
     } else {
-      setRefWallet(parseCookies()?.['ref_clix'] || '0x0000000000000000000000000000000000000000');
+      setRefWallet(parseCookies()?.['ref_meo'] || '0x0000000000000000000000000000000000000000');
     }
 
     setIsCheckingRefData(false);
@@ -80,22 +80,31 @@ export const BuyBlock = ({ checkNft, nftList, isAllowReflink }) => {
     }
   }, [transactionInfo, account]);
 
-  const buyCard = async () => {
+
+  const buyCard = async (id) => {
     if(!isLoadingTransaction) {
       setIsLoadingTransactions(true)
       try {
         const contract = await getContract(CONTRACT_NAMES.SCLIX_SALE);
         let gas = null;
+        const priceNft = toWei(fecthingNftList[currentNumCard]?.price);
+
+        const arrayWithIds = [0,0,0,0];
+        const arrayWithAmounts = [0,0,0,0];
+        const gap = id > 8 ? id - 8 : id > 4 ? id - 4 : id;
+        arrayWithIds.splice(gap - 1, 1, 1);
+        arrayWithAmounts.splice(gap - 1, 1, priceNft);
+
         try {
-          gas = await contract.estimateGas.buy(refWallet, 1, {
-            value: toWei(fecthingNftList[currentNumCard]?.price),
+          gas = await contract.estimateGas.buy(refWallet, arrayWithIds, arrayWithAmounts, {
+            value: priceNft,
           });
         } catch (e) {
           //
         }
 
-        const result = await contract.buy(refWallet, 1, {
-          value: toWei(fecthingNftList[currentNumCard]?.price),
+        const result = await contract.buy(refWallet, arrayWithIds, arrayWithAmounts, {
+          value: priceNft,
           gasLimit: parseInt(gas) ? increaseByPercent(gas) : DEFAULT_GAS_LIMIT
         });
 
@@ -108,52 +117,8 @@ export const BuyBlock = ({ checkNft, nftList, isAllowReflink }) => {
     }
   }
 
-  // fetch info
-  const tm = useRef(null);
-  const isFetching = useRef(false);
-  const [fecthingNftList, setFetchingNftList] = useState([null, null, null, null, null, null, null, null, null]);
+  const [fecthingNftList, setFetchingNftList] = useState(allNfts);
 
-  const callFetch = async () => {
-    let param = 0;
-
-    if (!isBefore(new Date(), add(new Date(cardsTimers[indexActive]?.startTime), {seconds: -10}))) {
-      param = Date.now();
-    }
-
-    fetch(
-      `https://forsage-storage.s3.eu-central-1.amazonaws.com/clickerPresale/saleInfo.json${
-        param ? `?time=${param}` : ""
-      }`
-    )
-      .then(result => {
-        return result.json();
-      })
-      .then(res => {
-        if (res) {
-
-          if(res[indexActive]) {
-            tm.current && clearTimeout(tm.current);
-          }
-
-          setFetchingNftList(res);
-        } else {
-          tm.current = setTimeout(callFetch, 1000);
-        }
-      })
-      .catch(e => {
-        tm.current && clearTimeout(tm.current);
-        tm.current = setTimeout(callFetch, 1000);
-      });
-  };
-
-  useEffect(() => {
-    if (!isFetching.current) {
-      isFetching.current = true;
-      callFetch();
-    }
-  }, [indexActive]);
-
-  // end fetch info
 
   const renderButton = useMemo(() => {
     if(isFinished) {
@@ -181,7 +146,7 @@ export const BuyBlock = ({ checkNft, nftList, isAllowReflink }) => {
     return (
       <button
         disabled={isCheckingRefData || isLoadingTransaction}
-        onClick={account ? () => buyCard() : () => onOpen()}
+        onClick={account ? () => buyCard(fecthingNftList[currentNumCard]?.id) : () => onOpen()}
         className={`${isLoadingTransaction ? 'bg-[#1C1D1E]' : account ? 'bg-[#1F86FF]' : 'bg-orange'} rounded-[16px] p-5 font-bold sm:text-sm`}
       >
         {isLoadingTransaction ? 'Loading...' : account ? `Buy Now for ${fecthingNftList[currentNumCard]?.price} BNB` : 'Connect Wallet and Buy'}
@@ -201,13 +166,13 @@ export const BuyBlock = ({ checkNft, nftList, isAllowReflink }) => {
 
   return (
     <div className="bg-[#121314] overflow-hidden border border-white-50 px-5 flex justify-between rounded-[40px] sm:rounded-none max-h-[567px] sm:px-0 sm:bg-transparent sm:border-none sm:flex-col sm:justify-start sm:max-h-fit sm:space-y-6 max-w-[1224px] w-full">
-      <div className="flex items-center justify-center flex-1 sm:min-h-[400px]">
+      {/* <div className="flex items-center justify-center flex-1 sm:min-h-[400px]">
 
         <span className="text-2xl text-white-600">Presale closed</span>
-      </div>
-      {/* <div className="py-5 flex items-center justify-center sm:py-0">
+      </div> */}
+      <div className="py-5 flex items-center justify-center sm:py-0">
         <div className="relative overflow-hidden flex items-center justify-center sm:px-[28px] sm:py-[37px] sm:bg-[#1C1D1E] sm:rounded-[24px]">
-          <img className="z-[10] w-[392px] sm:w-[90%]" src={convernImgUrl(fecthingNftList[currentNumCard]?.name)} alt="" />
+          <img className="z-[10] rounded-[16px] w-[400px] sm:w-[90%]" src={convernImgUrl(fecthingNftList[currentNumCard]?.id)} alt="" />
           <img className="hidden sm:block absolute bottom-0 left-1/2 -translate-x-1/2 w-full" src="/presale/buyCardBlur.svg" alt="" />
         </div>
       </div>
@@ -225,7 +190,7 @@ export const BuyBlock = ({ checkNft, nftList, isAllowReflink }) => {
         </div>
       </div>
 
-      <Reflink checkNft={checkNft} nftList={nftList} isAllowReflink={isAllowReflink} wrapperStyle="hidden sm:w-full sm:flex sm:flex-col sm:space-x-0 sm:space-y-5 sm:py-5" inputStyle={'w-full'} /> */}
+      <Reflink checkNft={checkNft} nftList={nftList} isAllowReflink={isAllowReflink} wrapperStyle="hidden sm:w-full sm:flex sm:flex-col sm:space-x-0 sm:space-y-5 sm:py-5" inputStyle={'w-full'} />
 
       <RightList currentNumCard={currentNumCard} fecthingNftList={fecthingNftList} nftList={nftList} setCurrentNumCard={(number) => {
         const now = Date.now() / 1000

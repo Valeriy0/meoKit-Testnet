@@ -6,12 +6,9 @@ export const shortenAddress = (address, chars = 4) => {
   }
 };
 
-export const convernImgUrl = (name) => {
-  if(!name) {
-    return '/presale/unknownCard.png'
-  }
+export const convernImgUrl = (number) => {
 
-  return `/clickerNft/img/${name?.replaceAll(' ', '')}.png`;
+  return `/nftImages/interplanet/${number}.webp`;
 }
 
 const providerErrors = {

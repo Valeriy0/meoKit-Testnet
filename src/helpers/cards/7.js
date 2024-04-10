@@ -1,28 +1,17 @@
-export const nft_7 = {
+export const nft7 = {
   "id": "7",
-  "description": "This is a unique NFT Skin for CLIX Game by FRGX Space.",
-  "image": "https://frgx.space/clickerNft/img/Thanos.png",
-  "name": "Thanos",
+  "price": 0.02,
+  "description": "The set of suits for the Cougars from the MEO World p2e game. Each costume is a pass to MEO Interplanet Tournament with a prize pool in FRGX Tokens.",
+  "image": "https://meo.world/MeoKit/Interplanet/img/gloves_buccaneer.png",
+  "name": "Buccaneer gloves",
   "attributes": [
     {
-      "type": "skin",
-      "value": "Thanos",
+      "trait_type": "Wear type",
+      "value": "Gloves"
     },
     {
-      "type": "clix",
-      "value": "100000",
-    },
-    {
-      "type": "multitap",
-      "value": "7",
-    },
-    {
-      "type": "energy restore",
-      "value": "7",
-    },
-    {
-      "type": "energy limit",
-      "value": "7",
-    },
+      "trait_type": "Energy bonus",
+      "value": "5"
+    }
   ]
 }

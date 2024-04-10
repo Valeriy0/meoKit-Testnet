@@ -1,28 +1,16 @@
-export const nft_9 = {
+export const nft9 = {
   "id": "9",
-  "description": "This is a unique NFT Skin for CLIX Game by FRGX Space.",
-  "image": "https://frgx.space/clickerNft/img/IronMan.png",
-  "name": "Iron Man",
+  "description": "The set of suits for the Cougars from the MEO World p2e game. Each costume is a pass to MEO Interplanet Tournament with a prize pool in FRGX Tokens.",
+  "image": "https://meo.world/MeoKit/Interplanet/img/pants_nomad.png",
+  "name": "Nomad pants",
   "attributes": [
     {
-      "type": "skin",
-      "value": "Iron Man",
+      "trait_type": "Wear type",
+      "value": "Pants"
     },
     {
-      "type": "clix",
-      "value": "750000",
-    },
-    {
-      "type": "multitap",
-      "value": "9",
-    },
-    {
-      "type": "energy restore",
-      "value": "9",
-    },
-    {
-      "type": "energy limit",
-      "value": "9",
-    },
+      "trait_type": "Energy bonus",
+      "value": "0"
+    }
   ]
 }
