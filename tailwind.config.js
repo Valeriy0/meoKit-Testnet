@@ -44,6 +44,7 @@ module.exports = {
         "orange-30": "rgba(255, 187, 84, 0.03)",
         "green-30": "rgba(150, 242, 51, 0.03)",
         "black-300": 'rgba(13, 14, 15, 0.30)',
+        "black-400": 'rgba(0, 0, 0, 0.40)',
       },
       backdropBlur: {
         small: "10px",

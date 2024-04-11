@@ -19,9 +19,11 @@ export const ClickerPresale = () => {
         <span className="poppins text-[40px] font-semibold sm:text-[24px]">MEO NFT Interplanet Kit</span>
         <Reflink checkNft={checkNft} nftList={nftList} isAllowReflink={isAllowReflink} wrapperStyle="sm:hidden" />
       </div>
+      <div className="flex-1 flex items-center justify-center w-full">
         {isAnySet && (
           <BuyBlock checkNft={checkNft} nftList={nftList} isAllowReflink={isAllowReflink} />
         )}
+        </div>
       {/* <About /> */}
     </BaseLayout>
   )

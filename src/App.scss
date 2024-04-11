@@ -6,6 +6,13 @@ html, body {
   background-color: #0D0E0F;
 }
 
+.mainPage-bg {
+  background-image: url('../public/mainPage/bg.webp');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
 /* poppins */
 
 @font-face {

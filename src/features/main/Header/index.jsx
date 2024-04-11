@@ -25,7 +25,7 @@ export const Header = () => {
   }, [account])
 
   return (
-    <header className="fixed top-0 bg-[#0D0E0F] flex items-center justify-center w-full py-7 sm:py-4 px-4 z-[111]">
+    <header className="fixed top-0 flex items-center justify-center w-full py-7 sm:py-4 px-4 z-[111]">
       <div className="w-full max-w-[1224px]  flex items-center justify-between">
         <div className="flex-1 flex items-center justify-start">
           <a href="/">
