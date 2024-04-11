@@ -49,7 +49,7 @@ export const RightList = ({ currentNumCard, fecthingNftList, setCurrentNumCard, 
 
           return (
             <div onClick={() => setCurrentNumCard(itemIndex)} className={`relative cursor-pointer flex items-center bg-[#1C1D1E] rounded-[20px] space-x-10 p-2.5 border border-transparent ${isChoosedCard}`} key={itemIndex}>
-             <img className="rounded-[10px] h-[100px] sm:h-[80px]" src={convernImgUrl(item?.id)} alt="" />
+             <img className="rounded-[10px] h-[90px] sm:h-[80px]" src={convernImgUrl(item?.id)} alt="" />
               <div className="flex flex-col space-y-3 sm:space-y-1">
                 {isActive ? (
                   <span className="text-[#1BFF5B] font-bold text-xl">Available Now</span>
