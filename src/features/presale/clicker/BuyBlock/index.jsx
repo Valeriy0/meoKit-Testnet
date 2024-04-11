@@ -162,7 +162,7 @@ export const BuyBlock = ({ checkNft, nftList, isAllowReflink }) => {
   }, [currentNumCard])
 
   return (
-    <div className="bg-white-50 backdrop-blur-2xl sm:bg-transparent sm:backdrop-blur-none overflow-hidden border border-white-50 px-5 flex justify-between rounded-[40px] sm:rounded-none max-h-[650px] sm:px-0 sm:bg-transparent sm:border-none sm:flex-col sm:justify-start sm:max-h-fit sm:space-y-6 max-w-[1224px] w-full">
+    <div className="bg-white-50 backdrop-blur-2xl shadow-2xl sm:shadow-none sm:bg-transparent sm:backdrop-blur-none overflow-hidden border border-white-50 px-5 flex justify-between rounded-[40px] sm:rounded-none max-h-[650px] sm:px-0 sm:bg-transparent sm:border-none sm:flex-col sm:justify-start sm:max-h-fit sm:space-y-6 max-w-[1224px] w-full">
       {/* <div className="flex items-center justify-center flex-1 sm:min-h-[400px]">
 
         <span className="text-2xl text-white-600">Presale closed</span>

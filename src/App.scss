@@ -11,6 +11,9 @@ html, body {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  @media (max-width: 992px) {
+    background-image: url('../public/mainPage/bg-mobile.webp');
+  }
 }
 
 /* poppins */
