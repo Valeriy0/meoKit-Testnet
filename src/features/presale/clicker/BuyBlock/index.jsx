@@ -144,7 +144,7 @@ export const BuyBlock = ({ checkNft, nftList, isAllowReflink }) => {
       <button
         disabled={isCheckingRefData || isLoadingTransaction}
         onClick={account ? () => buyCard(fecthingNftList[currentNumCard]?.id) : () => onOpen()}
-        className={`${isLoadingTransaction ? 'bg-[#1C1D1E]' : account ? 'bg-[#1F86FF]' : 'bg-orange'} rounded-[16px] p-5 font-bold sm:text-sm`}
+        className={`${isLoadingTransaction ? 'bg-[#1C1D1E]' : account ? 'bg-purple' : 'bg-purple'} rounded-[16px] p-5 font-bold sm:text-sm`}
       >
         {isLoadingTransaction ? 'Loading...' : account ? `Buy Now for ${fecthingNftList[currentNumCard]?.price} BNB` : 'Connect Wallet and Buy'}
       </button>

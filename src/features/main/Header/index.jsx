@@ -20,7 +20,7 @@ export const Header = () => {
       )
     }
     return (
-      <button onClick={() => onOpen()} className="whitespace-nowrap bg-orange py-2.5 px-10 rounded-[16px] sm:rounded-[13px]">Connect wallet</button>
+      <button onClick={() => onOpen()} className="whitespace-nowrap bg-purple py-2.5 px-10 rounded-[16px] sm:rounded-[13px]">Connect wallet</button>
     )
   }, [account])
 

@@ -17,7 +17,7 @@ module.exports = {
         sm: { max: "991px" }
       },
       colors: {
-        orange: '#FD9C22',
+        purple: '#5051F9',
         lightBlack: "rgba(9, 10, 10, 0.90)",
         "black-200": "rgba(0, 0, 0, 0.20)",
         lightGray: "rgba(255, 255, 255, 0.07)",

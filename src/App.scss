@@ -16,6 +16,12 @@ html, body {
   }
 }
 
+button, a {
+  &:hover {
+    opacity: .85;
+  }
+}
+
 /* poppins */
 
 @font-face {
