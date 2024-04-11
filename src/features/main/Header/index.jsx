@@ -13,7 +13,7 @@ export const Header = () => {
   const infoButton = useMemo(() => {
     if (account) {
       return (
-        <button onClick={() => onOpenWallet()} className="flex items-center space-x-2.5 bg-transparent py-2.5 px-5 rounded-[16px] sm:rounded-[13px] bg-white-10 border border-white-300">
+        <button onClick={() => onOpenWallet()} className="flex items-center space-x-2.5 bg-black-400 backdrop-blur-2xl py-2.5 px-5 rounded-[16px] sm:rounded-[13px] border border-white-300">
           <img className="w-6 h-6" src="/icons/wallet.svg" alt="" />
           <span className="font-semibold">{shortenAddress(account)}</span> 
         </button>
