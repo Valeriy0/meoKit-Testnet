@@ -15,8 +15,20 @@ export const allNfts = [nft1, nft2, nft3, nft4, nft5, nft6, nft7, nft8, nft9, nf
 
 export const cardsTimers = [
   {
-    startTime: 1712754984,
-    endTime: 1712927784,
+    startTime: 1710161430,
+    endTime: 1710161435,
+  },
+  {
+    startTime: 1710161430,
+    endTime: 1710161435,
+  },
+  {
+    startTime: 1710161430,
+    endTime: 1710161435,
+  },
+  {
+    startTime: 1710161430,
+    endTime: 1710161435,
   },
   {
     startTime: 1712754984,
@@ -31,20 +43,8 @@ export const cardsTimers = [
     endTime: 1712927784,
   },
   {
-    startTime: 1712927785,
-    endTime: 1713100584,
-  },
-  {
-    startTime: 1712927785,
-    endTime: 1713100584,
-  },
-  {
-    startTime: 1712927785,
-    endTime: 1713100584,
-  },
-  {
-    startTime: 1712927785,
-    endTime: 1713100584,
+    startTime: 1712754984,
+    endTime: 1712927784,
   },
   {
     startTime: 1713100585,
