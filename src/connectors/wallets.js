@@ -21,7 +21,7 @@ export const [walletConnectV2, walletConnectV2Hooks] = initializeConnector(
         new WalletConnectV2({
           actions,
           options: {
-            projectId: '85fd7aa40214224409524949cfa4968a',
+            projectId: 'cf6f74cdacc281bde52d9e47f338d0c4',
             chains: [config.allowedChainId],
             optionalChains: [config.allowedChainId],
             showQrModal: true,
