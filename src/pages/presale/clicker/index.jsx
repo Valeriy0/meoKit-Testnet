@@ -3,12 +3,10 @@ import { BaseLayout } from "../../../layouts/BaseLayout";
 import { BuyBlock } from "../../../features/presale/clicker/BuyBlock";
 import { About } from "../../../features/presale/clicker/About";
 import { Reflink } from "../../../features/presale/clicker/Reflink";
-import {cardsTimers} from "../../../helpers/cards";
+import {cardsStartTimers} from "../../../helpers/cards";
 import { useCheckNft } from "../../../helpers/hooks/useCheckNft";
 
 export const ClickerPresale = () => {
-  const isAnySet = cardsTimers.some(card => !!card.startTime);
-
   const { checkNft, nftList, isAllowReflink } = useCheckNft();
 
   console.log(nftList);
@@ -20,9 +18,7 @@ export const ClickerPresale = () => {
         <Reflink checkNft={checkNft} nftList={nftList} isAllowReflink={isAllowReflink} wrapperStyle="sm:hidden" />
       </div>
       <div className="flex-1 flex items-center justify-center w-full">
-        {isAnySet && (
-          <BuyBlock checkNft={checkNft} nftList={nftList} isAllowReflink={isAllowReflink} />
-        )}
+        <BuyBlock checkNft={checkNft} nftList={nftList} isAllowReflink={isAllowReflink} />
         </div>
       {/* <About /> */}
     </BaseLayout>

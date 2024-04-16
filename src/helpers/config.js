@@ -2,9 +2,9 @@ import { nftSaleAbi } from "./contractAbi/nftSale";
 import { nftAbi } from "./contractAbi/nft";
 
 export default {
-  nftSaleAddress: "0x9fFa9eED0CD040da3fE4C3F1724DaB0dd2f76D7b",
-  nftAddress: "0x716C20024FFA948e1Bd23Cbc671ab2ade7B192ba",
-  allowedChainId: 97,
+  nftSaleAddress: "0xe2dA1b7EE649A5D4D7aEAE57894C001ccDDe4c34",
+  nftAddress: "0x0562Ed77ED9187aFF2bC086E4a9A60fBE85512b1",
+  allowedChainId: 56,
 
   nftSaleAbi: nftSaleAbi,
   nftAbi: nftAbi,

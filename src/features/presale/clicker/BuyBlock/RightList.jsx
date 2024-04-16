@@ -1,5 +1,5 @@
 import React, {useEffect, useRef, useState} from "react";
-import { cardsTimers } from "../../../../helpers/cards";
+import { cardsStartTimers, cardsEndTimer } from "../../../../helpers/cards";
 import { fromUnixTime, format } from 'date-fns';
 import { convernImgUrl } from "../../../../helpers/format";
 import {Timer} from "../../../../components/Timer";
@@ -41,9 +41,9 @@ export const RightList = ({ currentNumCard, fecthingNftList, setCurrentNumCard, 
         {fecthingNftList.map((item,itemIndex) => {
           const currentCountNft = !!nftList[fecthingNftList[itemIndex]?.id - 1] && nftList[fecthingNftList[itemIndex]?.id - 1];
           const now = Date.now() / 1000
-          const isActive = cardsTimers[itemIndex].startTime <= now && now <= cardsTimers[itemIndex].endTime;
-          const isBeforeActive =  now > cardsTimers[itemIndex].endTime;
-          const isNeedTimer = elementWithTimerIndex === itemIndex && now <= cardsTimers[itemIndex].startTime;
+          const isActive = cardsStartTimers[itemIndex] <= now && now <= cardsEndTimer;
+          const isBeforeActive =  now > cardsEndTimer;
+          const isNeedTimer = elementWithTimerIndex === itemIndex && now <= cardsStartTimers[itemIndex];
 
           const isChoosedCard = currentNumCard === itemIndex ? isActive ? '!border-[#1BFF5B] isActive' : '!border-white' : '';
 
@@ -56,13 +56,7 @@ export const RightList = ({ currentNumCard, fecthingNftList, setCurrentNumCard, 
                 ) : (
                   <>
                     <span className="text-sm text-white-300 sm:text-xs">{isBeforeActive ? 'Sold Out' : 'Date Sale'}</span>
-                    {isNeedTimer && (
-                      <Timer onComplete={() => setIsStarted(prev => !prev)} spanClass='text-xl font-semibold text-white-300 sm:text-base space-x-1.5' time={cardsTimers[itemIndex]?.startTime} />
-                    )}
-                    {!isNeedTimer && (
-                      <span
-                        className="text-xl font-semibold text-white-300 sm:text-base">{format(fromUnixTime(cardsTimers[itemIndex]?.startTime), "dd MMMM")}</span>
-                    )}
+                    <span className="text-xl font-semibold text-white-300 sm:text-base">{format(fromUnixTime(cardsStartTimers[itemIndex]), "dd MMMM")}</span>
                   </>
                 )}
               </div>

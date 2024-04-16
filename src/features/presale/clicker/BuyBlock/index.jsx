@@ -7,7 +7,7 @@ import { useGetContract } from "../../../../helpers/hooks/useGetContract";
 import { DEFAULT_GAS_LIMIT } from "../../../../helpers/constants";
 import {increaseByPercent, toWei} from "../../../../helpers/numbers";
 import { Timer } from "../../../../components/Timer";
-import { cardsTimers, allNfts } from "../../../../helpers/cards";
+import { cardsStartTimers, allNfts, cardsEndTimer } from "../../../../helpers/cards";
 import { setCookie, parseCookies } from 'nookies';
 import {convernImgUrl, parseErrorToUserReadableMessage} from "../../../../helpers/format";
 import { RightList } from "./RightList";
@@ -28,14 +28,14 @@ export const BuyBlock = ({ checkNft, nftList, isAllowReflink }) => {
     }
   }, [transactionInfo]);
 
-  const indexActive = [...cardsTimers].reduce((result, item, index) => {
+  const indexActive = [...cardsStartTimers].reduce((result, item, index) => {
     const now = Date.now() / 1000
-    if (now < cardsTimers[0].startTime) {
+    if (now < cardsStartTimers[0]) {
       return result
     }
-    else if (now > cardsTimers[cardsTimers.length-1].endTime) {
-      return cardsTimers.length - 1
-  } else if (now > item.startTime && now < item.endTime) {
+    else if (now > cardsEndTimer) {
+      return cardsStartTimers.length - 1
+  } else if (now > item && now < cardsEndTimer) {
       return index
     }
     return result
@@ -135,7 +135,7 @@ export const BuyBlock = ({ checkNft, nftList, isAllowReflink }) => {
           disabled={true}
           className={`bg-[#1C1D1E] rounded-[16px] p-5 font-bold sm:text-sm`}
         >
-          <Timer onComplete={() => setIsStarted(true)} spanClass='text-sm sm:text-xs' time={cardsTimers[currentNumCard]?.startTime} />
+          <Timer onComplete={() => setIsStarted(true)} spanClass='text-sm sm:text-xs' time={cardsStartTimers[currentNumCard]} />
         </button>
       )
     }
@@ -157,7 +157,7 @@ export const BuyBlock = ({ checkNft, nftList, isAllowReflink }) => {
 
   const renderTime = useMemo(() => {
     return (
-      <Timer onComplete={() => setNextActiveCard()} spanClass='text-sm sm:text-xs' time={cardsTimers[currentNumCard]?.endTime} />
+      <Timer onComplete={() => setNextActiveCard()} spanClass='text-sm sm:text-xs' time={cardsEndTimer} />
     )
   }, [currentNumCard])
 
@@ -193,8 +193,8 @@ export const BuyBlock = ({ checkNft, nftList, isAllowReflink }) => {
         const now = Date.now() / 1000
 
         setCurrentNumCard(number)
-        setIsStarted(cardsTimers[number].startTime < now)
-        setIsFinished(cardsTimers[number].endTime < now)
+        setIsStarted(cardsStartTimers[number] < now)
+        setIsFinished(cardsEndTimer < now)
       }} />
       <TransactionModal transaction={transactionInfo} openedModal={openedTransModal} onClose={onCloseTransModal} />
       <ActivateModal openedModal={openedModal} handleCloseModal={onClose} />
