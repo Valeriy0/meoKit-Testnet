@@ -20,7 +20,7 @@ export const ClickerPresale = () => {
       <div className="flex-1 flex items-center justify-center w-full">
         <BuyBlock checkNft={checkNft} nftList={nftList} isAllowReflink={isAllowReflink} />
         </div>
-      {/* <About /> */}
+      <About />
     </BaseLayout>
   )
 }
