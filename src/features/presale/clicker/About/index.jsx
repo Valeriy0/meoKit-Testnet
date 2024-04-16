@@ -8,7 +8,7 @@ export const About = () => {
       title: 'Interplanet Tournament',
       grafic: () => {
         return (
-          <img className="rounded-[16px]" src='/presale/2.webp' />
+          <img className="rounded-[16px]" src='/presale/1.webp' />
         )
       },
       desc: () => {
@@ -27,7 +27,7 @@ export const About = () => {
       title: 'About referral program',
       grafic: () => {
         return (
-          <img className="rounded-[16px]" src='/presale/1.webp' />
+          <img className="rounded-[16px]" src='/presale/2.webp' />
         )
       },
       desc: () => {
