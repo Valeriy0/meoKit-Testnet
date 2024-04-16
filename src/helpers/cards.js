@@ -28,4 +28,4 @@ export const cardsStartTimers = [
   1714219200,
 ];
 
-export const cardsEndTimer = 1714478400;
+export const cardsEndTimer = 1714651200;
