@@ -177,12 +177,12 @@ export const BuyBlock = ({ checkNft, nftList, isAllowReflink }) => {
         <CardParamsList fecthingNftList={fecthingNftList} currentNumCard={currentNumCard} />
         <div className="space-y-5 flex flex-col sm:space-y-6 sm:order-1 sm:mb-6">
           {renderButton}
-          {indexActive === currentNumCard && (
+          {/* {indexActive === currentNumCard && (
             <div className="flex items-center justify-center space-x-1.5 sm:text-xs">
               <span>Sale ends in</span>
               {renderTime}
             </div>
-          )}
+          )} */}
 
         </div>
       </div>
