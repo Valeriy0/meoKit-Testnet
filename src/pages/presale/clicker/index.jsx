@@ -5,24 +5,34 @@ import { About } from "../../../features/presale/clicker/About";
 import { Reflink } from "../../../features/presale/clicker/Reflink";
 import {cardsStartTimers} from "../../../helpers/cards";
 import { useCheckNft } from "../../../helpers/hooks/useCheckNft";
+import { useModal } from "../../../helpers/hooks/useModal";
+import { InfoModal } from "../../../components/modals/InfoModal";
 
 export const ClickerPresale = () => {
+  const { onClose, onOpen, openedModal } = useModal();
   const { checkNft, nftList, isAllowReflink } = useCheckNft();
   const [wearList, setWearList] = useState([0,0,0,0]);
 
+  let isAllSet = !!wearList[0] && !!wearList[1] && !!wearList[2] && !!wearList[3];
+
   const updateWearLIST = () => {
     let wearTemp = wearList;
-    if (!!nftList[1] || !!nftList[5] || !!nftList[9]) {
-      wearTemp.splice(0, 1, 1);
-    } else if (!!nftList[2] || !!nftList[6] || !!nftList[10]) {
+    if (!!nftList[0] || !!nftList[4] || !!nftList[8]) {
       wearTemp.splice(1, 1, 1);
-    } else if (!!nftList[3] || !!nftList[7] || !!nftList[11]) {
-      wearTemp.splice(2, 1, 1);
-    } else if (!!nftList[4] || !!nftList[8] || !!nftList[12]) {
+    } 
+    if (!!nftList[1] || !!nftList[5] || !!nftList[9]) {
       wearTemp.splice(3, 1, 1);
+    } 
+    if (!!nftList[2] || !!nftList[6] || !!nftList[10]) {
+      wearTemp.splice(0, 1, 1);
+    }
+    if (!!nftList[3] || !!nftList[7] || !!nftList[11]) {
+      wearTemp.splice(2, 1, 1);
     }
     setWearList(wearTemp);
   }
+
+  console.log(wearList, nftList);
 
   useEffect(() => {
     updateWearLIST();
@@ -37,7 +47,7 @@ export const ClickerPresale = () => {
         <Reflink checkNft={checkNft} nftList={nftList} isAllowReflink={isAllowReflink} wrapperStyle="sm:hidden" />
       </div>
       <div className="relative flex-1 flex items-center justify-center w-full">
-        <div className="bg-white-50 backdrop-blur-2xl rounded-[16px] p-[5px] space-x-[5px] flex absolute top-[-75px] sm:top-[-35px] z-[3] left-1/2 -translate-x-1/2 w-[225px] shadow-2xl">
+        <div onClick={() => onOpen()} className="bg-white-50 backdrop-blur-2xl rounded-[16px] p-[5px] space-x-[5px] flex absolute top-[-75px] sm:top-[-35px] z-[3] left-1/2 -translate-x-1/2 w-[225px] shadow-2xl">
           {wearList.map((item, itemIndex) => {
             return (
               <div className="flex items-center justify-center ">
@@ -49,6 +59,7 @@ export const ClickerPresale = () => {
         <BuyBlock checkNft={checkNft} nftList={nftList} isAllowReflink={isAllowReflink} />
         </div>
       <About />
+      <InfoModal isAllSet={isAllSet} openedModal={openedModal} onClose={onClose} />
     </BaseLayout>
   )
 }
