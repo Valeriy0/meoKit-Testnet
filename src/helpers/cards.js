@@ -14,10 +14,10 @@ import { nft12 } from "./cards/12";
 export const allNfts = [nft5, nft6, nft7, nft8, nft1, nft2, nft3, nft4, nft9, nft10, nft11,  nft12];
 
 export const cardsStartTimers = [
-  1713355200,
-  1713355200,
-  1713355200,
-  1713355200,
+  1712355200,
+  1712355200,
+  1712355200,
+  1712355200,
   1713787200,
   1713787200,
   1713787200,
