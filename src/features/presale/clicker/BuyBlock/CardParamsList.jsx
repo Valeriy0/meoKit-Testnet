@@ -49,14 +49,14 @@ export const CardParamsList = ({ fecthingNftList, currentNumCard }) => {
               </div>
             )
           })}
-          {!!fecthingNftList[currentNumCard]?.price && (
+          {/* {!!fecthingNftList[currentNumCard]?.price && (
             <div className="flex flex-col justify-between bg-black-400 p-6 space-y-3 rounded-[20px] sm:p-4 sm:space-y-2 sm:w-full" >
               <span className="text-white-400 capitalize">Price</span>
               <div className="font-semibold text-xl leading-[20px]">
                 {fecthingNftList[currentNumCard]?.price} BNB
               </div>
             </div>
-          )}  
+          )}   */}
         </div>
   )
 }

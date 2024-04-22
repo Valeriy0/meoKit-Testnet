@@ -118,37 +118,38 @@ export const BuyBlock = ({ checkNft, nftList, isAllowReflink }) => {
 
 
   const renderButton = useMemo(() => {
-    if(isFinished) {
+    // if(isFinished) {
       return (
         <button
           disabled={true}
           className={`bg-[#1C1D1E] rounded-[16px] p-5 font-bold sm:text-sm`}
         >
-          Sold out
+          {/* Sold out */}
+          Coming soon
         </button>
       )
-    }
+    // }
 
-    if(!isStarted) {
-      return (
-        <button
-          disabled={true}
-          className={`bg-[#1C1D1E] rounded-[16px] p-5 font-bold sm:text-sm`}
-        >
-          <Timer onComplete={() => setIsStarted(true)} spanClass='text-sm sm:text-xs' time={cardsStartTimers[currentNumCard]} />
-        </button>
-      )
-    }
+    // if(!isStarted) {
+    //   return (
+    //     <button
+    //       disabled={true}
+    //       className={`bg-[#1C1D1E] rounded-[16px] p-5 font-bold sm:text-sm`}
+    //     >
+    //       <Timer onComplete={() => setIsStarted(true)} spanClass='text-sm sm:text-xs' time={cardsStartTimers[currentNumCard]} />
+    //     </button>
+    //   )
+    // }
 
-    return (
-      <button
-        disabled={isCheckingRefData || isLoadingTransaction}
-        onClick={account ? () => buyCard(fecthingNftList[currentNumCard]?.id) : () => onOpen()}
-        className={`${isLoadingTransaction ? 'bg-[#1C1D1E]' : account ? 'bg-purple' : 'bg-purple'} rounded-[16px] p-5 font-bold sm:text-sm`}
-      >
-        {isLoadingTransaction ? 'Loading...' : account ? `Buy Now for ${fecthingNftList[currentNumCard]?.price} BNB` : 'Connect Wallet and Buy'}
-      </button>
-    )
+    // return (
+    //   <button
+    //     disabled={isCheckingRefData || isLoadingTransaction}
+    //     onClick={account ? () => buyCard(fecthingNftList[currentNumCard]?.id) : () => onOpen()}
+    //     className={`${isLoadingTransaction ? 'bg-[#1C1D1E]' : account ? 'bg-purple' : 'bg-purple'} rounded-[16px] p-5 font-bold sm:text-sm`}
+    //   >
+    //     {isLoadingTransaction ? 'Loading...' : account ? `Buy Now for ${fecthingNftList[currentNumCard]?.price} BNB` : 'Connect Wallet and Buy'}
+    //   </button>
+    // )
   }, [currentNumCard, isLoadingTransaction, isFinished, isStarted, account, fecthingNftList])
 
   const setNextActiveCard = () => {
@@ -172,10 +173,10 @@ export const BuyBlock = ({ checkNft, nftList, isAllowReflink }) => {
         <div className="space-y-5 flex flex-col sm:space-y-6 sm:order-1 sm:mb-6">
           {renderButton}
           
-            <div className="flex items-center justify-center space-x-1.5 sm:text-xs">
+            {/* <div className="flex items-center justify-center space-x-1.5 sm:text-xs">
               <span>Sale ends in</span>
               <Timer onComplete={() => setNextActiveCard()} spanClass='text-sm sm:text-xs' time={cardsEndTimer} />
-            </div>
+            </div> */}
           
 
         </div>

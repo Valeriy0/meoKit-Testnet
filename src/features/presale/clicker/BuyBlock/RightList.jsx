@@ -51,14 +51,14 @@ export const RightList = ({ currentNumCard, fecthingNftList, setCurrentNumCard, 
             <div onClick={() => setCurrentNumCard(itemIndex)} className={`relative cursor-pointer flex items-center bg-black-400 rounded-[20px] space-x-10 p-2.5 border border-transparent ${isChoosedCard}`} key={itemIndex}>
              <img className="rounded-[10px] h-[80px]" src={convernImgUrl(item?.id)} alt="" />
               <div className="flex flex-col space-y-3 sm:space-y-1">
-                {isActive ? (
+                {/* {isActive ? (
                   <span className="text-[#1BFF5B] font-bold text-xl">Available Now</span>
                 ) : (
                   <>
                     <span className="text-sm text-white-300 sm:text-xs">{isBeforeActive ? 'Sold Out' : 'Date Sale'}</span>
                     <span className="text-xl font-semibold text-white-300 sm:text-base">{format(fromUnixTime(cardsStartTimers[itemIndex]), "dd MMMM")}</span>
                   </>
-                )}
+                )} */}
               </div>
               {currentCountNft && <div
                 className={`bg-white-100 border border-white-50 absolute top-2.5 right-2.5 text-white px-2.5 py-0.5 rounded-full flex items-center justify-center !ml-0 font-medium sm:text-sm ${isActive ? '!text-[#1BFF5B]' : ''}`}>x{currentCountNft}</div>}
